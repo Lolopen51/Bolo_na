@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolo Na - Send Message</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div>
+    <img src="{{ url_for('static', filename='final.png') }}" alt="Final" class="logo" height="180px" width="200px">
+  </div>
+
+  <div class="box">
+    <div class="dashboard-content">
+      <h1>Send an anonymous message to {{ username }}</h1>
+        <form method="POST" action="/send/{{ username }}">
+        <div class="input-box cool-input-box">
+            <textarea id="msg" name="msg" class="cool-textarea" rows="6" placeholder="Type your message..." maxlength="5000" required></textarea>
+        </div>
+        <div>    <!-- Counter lives inside the box -->
+            <span class="char-count" id="charCount">0/5000</span>
+        </div>
+
+        <!-- Stay anonymous moved before the button -->
+        <p class="stay-anon-hint">Stay anonymous</p>
+
+        <input type="submit" value="Send">
+        </form>
+
+        <script>
+        (function(){
+            const ta = document.getElementById('msg');
+            const cc = document.getElementById('charCount');
+            if(!ta || !cc) return;
+            const update = () => cc.textContent = `${ta.value.length}/5000`;
+            ta.addEventListener('input', update);
+            update();
+        })();
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolo Na - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <main class="main">
+    <div >
+            <img src="{{ url_for('static', filename='final.png') }}" alt="Final" class="logo" height="180px" width="200px">
+    </div>
+    <div class="box">
+
+        <!-- Your form with the POST method -->
+        <form method="POST" autocomplete="off">
+            
+            <!-- Custom Headers -->
+            <h1>Welcome to Bolo Na</h1>
+            <h3>Login to continue</h3>
+
+            <!-- Error message display logic -->
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+
+            <!-- Styled Username Input -->
+            <div class="input-box">
+                <input type="text" name="username" required>
+                <span>Username</span>
+                <i></i>
+            </div>
+
+            <!-- Styled Password Input -->
+            <div class="input-box">
+                <input type="password" name="password" required>
+                <span>Password</span>
+                <i></i>
+            </div>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Login">
+            
+        </form>
+    </div>
+</main>
+</body>
+</html>
+
