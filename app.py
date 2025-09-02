@@ -5,7 +5,7 @@ app.secret_key = "supersecretkey"  # change this
 
 messages = []
 passwords = {
-    "Rohan": "1234",
+    "Rohan": "1234zxcv",
 }
 
 # =========================
